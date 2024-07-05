@@ -1,0 +1,59 @@
+{
+  "name": "vscode-wikipedia-agent",
+  "publisher": "flaviodelgrosso",
+  "displayName": "VSCode Chat Wikipedia Participant",
+  "description": "This extension provides a chat participant that allows you to search for information on Wikipedia.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flaviodelgrosso/vscode-copilot-wikipedia-agent.git"
+  },
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "version": "1.0.0",
+  "extensionDependencies": [
+    "github.copilot-chat"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "enabledApiProposals": [
+    "chatVariableResolver"
+  ],
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "vscode-copilot.wikipedia",
+        "fullName": "Wikipedia",
+        "name": "wikipedia",
+        "description": "Search informations on Wikipedia and get the summary of the article.",
+        "isSticky": true
+      }
+    ]
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "publish": "vsce publish",
+    "unpublish": "vsce unpublish flaviodelgrosso.vscode-wikipedia-agent",
+    "patch": "vsce publish patch",
+    "minor": "vsce publish minor",
+    "major": "vsce publish major",
+    "compile": "tsc && vite build",
+    "watch": "vite build --watch",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "npx @biomejs/biome check --apply ./src",
+    "test": "vscode-test",
+    "update-proposed-api": "npx vscode-dts dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@langchain/community": "^0.2.17",
+    "@types/node": "^20.14.9",
+    "@types/vscode": "1.90.0",
+    "@vscode/prompt-tsx": "^0.2.4-alpha",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3"
+  }
+}
