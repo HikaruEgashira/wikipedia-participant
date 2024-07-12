@@ -64,7 +64,7 @@ function handleChatError(
     if (err.cause instanceof Error && err.cause.message.includes("off_topic")) {
       stream.markdown(
         vscode.l10n.t(
-          "I'm sorry, I can only explain computer science concepts."
+          "I'm sorry, I can only answer questions related to the information found on Wikipedia."
         )
       );
     }
