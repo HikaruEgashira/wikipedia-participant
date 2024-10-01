@@ -12,7 +12,7 @@ export interface IChatResult extends vscode.ChatResult {
 
 const MODEL_SELECTOR: vscode.LanguageModelChatSelector = {
   vendor: "copilot",
-  family: "gpt-4",
+  family: "gpt-4o",
 };
 
 export const chatHandler: vscode.ChatRequestHandler = async (
