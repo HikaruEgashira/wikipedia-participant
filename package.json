@@ -8,7 +8,7 @@
     "url": "https://github.com/flaviodelgrosso/vscode-copilot-wikipedia-agent.git"
   },
   "engines": {
-    "vscode": "^1.91.0"
+    "vscode": "^1.93.0"
   },
   "version": "1.0.0",
   "extensionDependencies": [
@@ -45,7 +45,8 @@
     "pretest": "npm run compile && npm run lint",
     "lint": "npx @biomejs/biome check --apply ./src",
     "test": "vscode-test",
-    "update-proposed-api": "npx vscode-dts dev"
+    "update-proposed-api": "npx vscode-dts dev",
+    "package": "vsce package"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
