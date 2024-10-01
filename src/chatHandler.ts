@@ -15,12 +15,7 @@ const MODEL_SELECTOR: vscode.LanguageModelChatSelector = {
   family: "gpt-4o",
 };
 
-export const chatHandler: vscode.ChatRequestHandler = async (
-  request: vscode.ChatRequest,
-  _context: vscode.ChatContext,
-  stream: vscode.ChatResponseStream,
-  token: vscode.CancellationToken
-): Promise<IChatResult> => {
+export const chatHandler: vscode.ChatRequestHandler = async (request, _context, stream, token) => {
   stream.progress("Start searching on Wikipedia...");
 
   try {
@@ -35,7 +30,7 @@ export const chatHandler: vscode.ChatRequestHandler = async (
         SearchPrompt,
         { userQuery: request.prompt, wikipediaResult },
         { modelMaxPromptTokens: model.maxInputTokens },
-        model
+        model,
       );
 
       const chatResponse = await model.sendRequest(messages, {}, token);
@@ -51,10 +46,7 @@ export const chatHandler: vscode.ChatRequestHandler = async (
   return { metadata: { command: "" } };
 };
 
-function handleChatError(
-  err: unknown,
-  stream: vscode.ChatResponseStream
-): void {
+function handleChatError(err: unknown, stream: vscode.ChatResponseStream): void {
   // making the chat request might fail because
   // - model does not exist
   // - user consent not given
@@ -63,9 +55,7 @@ function handleChatError(
     console.error(err.message, err.code, err.cause);
     if (err.cause instanceof Error && err.cause.message.includes("off_topic")) {
       stream.markdown(
-        vscode.l10n.t(
-          "I'm sorry, I can only answer questions related to the information found on Wikipedia."
-        )
+        vscode.l10n.t("I'm sorry, I can only answer questions related to the information found on Wikipedia."),
       );
     }
   } else {

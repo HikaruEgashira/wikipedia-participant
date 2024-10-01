@@ -7,8 +7,8 @@ import {
 } from "@vscode/prompt-tsx";
 
 export interface PromptProps extends BasePromptElementProps {
-  wikipediaResult: string;
   userQuery: string;
+  wikipediaResult: string;
 }
 
 export class SearchPrompt extends PromptElement<PromptProps, void> {
