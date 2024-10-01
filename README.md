@@ -1,12 +1,7 @@
 # Chat Example
 
-This sample shows
-
-- How to contribute a chat participant.
-- How to use the chatRequestAccess API to request access to the chat.
-- How to respond with follow-ups.
-
-![demo](./demo.png)
+- プロンプトをWikipedia APIに送信する
+- レスポンスを元にGPT-4oで返答を生成する
 
 ## Running the Sample
 
