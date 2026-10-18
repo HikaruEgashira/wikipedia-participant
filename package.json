@@ -3,6 +3,7 @@
   "publisher": "flaviodelgrosso",
   "displayName": "VSCode Chat Wikipedia Participant",
   "description": "This extension provides a chat participant that allows you to search for information on Wikipedia.",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/flaviodelgrosso/vscode-copilot-wikipedia-agent.git"
