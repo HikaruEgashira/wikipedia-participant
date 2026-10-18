@@ -45,6 +45,7 @@
     "watch": "vite build --watch",
     "pretest": "npm run compile && npm run lint",
     "lint": "npx @biomejs/biome check --apply ./src",
+    "lint:workflows": "node scripts/check-workflow-actions.mjs",
     "test": "vscode-test",
     "update-proposed-api": "npx vscode-dts dev",
     "package": "vsce package"
